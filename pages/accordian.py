@@ -5,5 +5,6 @@ class Accordian(BasePage):
     def __init__(self, driver):
         self.base_url = 'https://demoqa.com/accordian'
         super().__init__(driver, self.base_url)
+
         self.section_content = WebElement(driver, '#section1Content > p')
         self.section_heading = WebElement(driver, '#section1Heading')
