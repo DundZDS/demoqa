@@ -21,7 +21,6 @@ class BasePage:
 
     def get_title(self):
         return self.driver.title
-    
 
 
     def get_url(self):
