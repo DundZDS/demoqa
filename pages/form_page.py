@@ -17,6 +17,14 @@ class FormPage(BasePage):
         self.btn_close_modal = WebElement (driver, '#closeLargeModal')
         self.hobbies = WebElement(driver,'#hobbies-checkbox-1')
         self.current_address = WebElement(driver,'#current_Address')
+
         self.form_elements = WebElement(driver, '#userForm')
+
         self.dropdown_state = WebElement (driver, '#state')
         self.dropdown_city = WebElement (driver, '#city')
+
+        self.btn_NCR = WebElement(driver,"//*[contains(text(),'NCR')]", 'xpath')
+
+        
+
+

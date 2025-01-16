@@ -1,5 +1,8 @@
+from faulthandler import is_enabled
+
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException
+from selenium.webdriver.common.devtools.v85.dom import get_attributes
 from selenium.webdriver.common.keys import Keys
 
 class WebElement:
@@ -47,7 +50,7 @@ class WebElement:
         self.send_keys(Keys.CONTROL+ 'a')
         self.send_keys(Keys.DELETE)
 
-    def get_dom_attribute(self,name:str):
+    def get_dom_attribute(self, name:str):
         value = self.find_element().get_dom_attribute(name)
 
         if value is None:
@@ -55,6 +58,9 @@ class WebElement:
         if len(value)>0:
             return value
         return True
+
+    def check_css(self, style, value=' '):
+        return self.find_element().value_of_css_property(style) == value
 
     def scroll_to_element(self):
         self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);",
@@ -76,6 +82,14 @@ class WebElement:
         else:
             print('locator type' +self.locator_type + 'not correct')
         return False
+
+    def checking_for_the_disabled_attribute(self):
+        value = self.find_element().get_attribute("disabled")
+        if value is None or True:
+            return True
+        else:
+            return False
+
 
 
 

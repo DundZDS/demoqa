@@ -1,6 +1,16 @@
 from selenium.webdriver.common.by import By
-import logging
 
+from components.components import WebElement
+from pages.base_page import BasePage
+
+
+class KoupPage(BasePage):
+
+    def __init__(self, driver):
+        self.base_url = 'http://the-internet.herokuapp.com'
+        super().__init__(driver, self.base_url)
+        self.btn_add_remove_elements = WebElement(driver, '#content > ul:nth-child(4) > li:nth-child(2) > a:nth-child(1)')
+        self.link_add = WebElement(driver, '#content > ul:nth-child(4) > li:nth-child(2) > a:nth-child(1)')
 
 class BasePage:
 
@@ -30,11 +40,4 @@ class BasePage:
         if self.get_url() == self.base_url:
             return True
         else:
-            return False
-
-    def alert(self):
-        try:
-            return self.driver.switch_to.allert
-        except Exception as ex:
-            logging.log(1,ex)
             return False
