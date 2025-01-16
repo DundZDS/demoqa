@@ -1,5 +1,3 @@
-import time
-
 from pages.webtables import WebTablesPage
 from selenium.webdriver import Keys
 
@@ -33,13 +31,3 @@ def test_new_table_page(browser):
     assert  web_tables.table_page.get_dom_attribute('value') == '2'
     web_tables.btn_previous.click()
     assert web_tables.table_page.get_dom_attribute('value') == '1'
-
-
-
-
-
-
-
-
-
-
