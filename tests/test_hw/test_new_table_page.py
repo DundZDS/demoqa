@@ -4,7 +4,7 @@ from pages.webtables import WebTablesPage
 from selenium.webdriver import Keys
 
 
-def test_del_tables(browser):
+def test_new_table_page(browser):
     web_tables = WebTablesPage(browser)
     web_tables.visit()
 
