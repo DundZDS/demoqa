@@ -1,4 +1,4 @@
-from websocket import debug
+from selenium.webdriver.common.by import By
 
 from components.components import WebElement
 from pages.base_page import BasePage
@@ -30,3 +30,29 @@ class WebTablesPage(BasePage):
         self.btn_next = WebElement(driver, '.-next')
         self.table_page = WebElement(driver, '.-pageJump > input')
         self.total_table_page = WebElement(driver,".-totalPages")
+
+        self.column_table = WebElement(driver, '.rt-resizable-header-content')
+
+        self.table_headers_locators = {
+            "First Name": (By.XPATH, "//div[@role='columnheader'][contains(.,'First Name')]"),
+            "Last Name": (By.XPATH, "//div[@role='columnheader'][contains(.,'Last Name')]"),
+            "Age": (By.XPATH, "//div[@role='columnheader'][contains(.,'Age')]"),
+            "Email": (By.XPATH, "//div[@role='columnheader'][contains(.,'Email')]"),
+            "Salary": (By.XPATH, "//div[@role='columnheader'][contains(.,'Salary')]"),
+            "Department": (By.XPATH, "//div[@role='columnheader'][contains(.,'Department')]"),
+        }
+
+    def click_on_column_header(self, column_header):
+        locator = self.table_headers_locators[column_header]
+        self.driver.find_element(*locator).click()
+
+    def get_column_header_class(self, column_header):
+        locator = self.table_headers_locators[column_header]
+        element = self.driver.find_element(*locator)
+        return element.get_attribute("class")
+
+
+
+
+
+

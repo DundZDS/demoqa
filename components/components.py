@@ -1,8 +1,5 @@
-from faulthandler import is_enabled
-
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException
-from selenium.webdriver.common.devtools.v85.dom import get_attributes
 from selenium.webdriver.common.keys import Keys
 
 class WebElement:
@@ -89,6 +86,7 @@ class WebElement:
             return True
         else:
             return False
+
 
 
 
