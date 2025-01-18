@@ -8,7 +8,6 @@ def test_window_tab(browser):
     links_page = LinksPage(browser)
     links_page.visit()
 
-
     links_page.btn_home.exist()
     assert links_page.btn_home.get_text() == 'Home'
 
@@ -18,6 +17,3 @@ def test_window_tab(browser):
     links_page.btn_home.click()
     time.sleep(2)
     assert len(browser.window_handles) == 2
-
-
-
